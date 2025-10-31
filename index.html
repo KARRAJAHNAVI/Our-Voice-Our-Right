@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Voice, Our Rights</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .selector {
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      cursor: pointer;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+    }
+    button:hover {
+      background-color: #219150;
+    }
+    #comparison {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #34495e;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>MGNREGA District Performance</h1>
+
+  <div class="selector">
+    <label for="stateSelect">State:</label>
+    <select id="stateSelect" onchange="populateDistricts()">
+      <option value="">--Select State--</option>
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <option value="Telangana">Telangana</option>
+      <option value="Karnataka">Karnataka</option>
+      <option value="Kerala">Kerala</option>
+      <option value="Tamil Nadu">Tamil Nadu</option>
+      <option value="Maharashtra">Maharashtra</option>
+      <option value="Goa">Goa</option>
+      <option value="Gujarat">Gujarat</option>
+      <option value="Odisha">Odisha</option>
+      <option value="Madhya Pradesh">Madhya Pradesh</option>
+      <option value="Delhi">Delhi</option>
+    </select>
+
+    <label for="districtSelect">District:</label>
+    <select id="districtSelect">
+      <option value="">--Select District--</option>
+    </select>
+
+    <button onclick="loadData()">Get Data</button>
+    <button onclick="detectLocation()">Use My Location</button>
+  </div>
+
+  <div id="output">
+    <canvas id="performanceChart" width="400" height="200"></canvas>
+    <div id="comparison"></div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
